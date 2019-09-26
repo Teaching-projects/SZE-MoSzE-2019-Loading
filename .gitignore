@@ -1,7 +1,8 @@
 # because of the qt creator
 *.pro
 *.pro.user
-# because of the mvs
+# because of the microsoft vs
 *.vcxproj
 *.vcxproj.filters
 Debug/
+.vs/
