@@ -21,9 +21,13 @@ void System::cd(std::string dirname){
 }
 
 void System::cdBack() {
-    for (auto &d : dirs){
-        if (currentFolder == d->getName() && currentFolder != "/"){
-            currentFolder = d->getParent();
+    if (currentFolder != "/"){
+        for (auto &d : dirs){
+            if (currentFolder == d->getName()){
+                currentFolder = d->getParent();
+            }
         }
+    } else {
+        std::cerr << "You are already in a root...\n" << std::endl;
     }
 }
