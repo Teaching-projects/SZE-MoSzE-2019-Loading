@@ -4,15 +4,27 @@
 
 int main(int argc, char** argv) {
 
-    System s;
-    s.mkDir("Auto");
-    s.ls();
-    s.cd("Auto");
-    s.mkDir("Audi");
-    s.mkDir("Seat");
-    s.ls();
-    s.cdBack();
-    s.ls();
+    System system;
+    std::string command;
+    std::string dirName;
+
+    do {
+        system.printPath();
+        std::cin >> command;
+
+        if (command == "ls"){ system.ls(); }
+        else if (command == "mkdir") { std::cin >> dirName; system.mkdir(dirName); }
+        else if (command == "cd") {
+            std::cin >> dirName;
+            if (dirName == ".."){
+                system.cdBack();
+            } else { system.cd(dirName);}
+        }
+
+
+    } while(command != "quit");
+
+
     return 0;
 }
 
