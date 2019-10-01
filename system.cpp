@@ -52,7 +52,7 @@ bool System::hasChild(std::string dirname){
 
 void System::rm(std::string dirname){
     if(hasChild(dirname)==true){
-        std::cerr << "Cannot be removed..." << std::endl;
+        std::cerr << "failed to remove " << "'" << dirname << "': " << "Directory not empty"  << std::endl;
     }
     else if (hasChild(dirname) == false){
         for(unsigned i=0; i<dirs.size();i++){

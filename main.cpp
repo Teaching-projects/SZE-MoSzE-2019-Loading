@@ -25,8 +25,10 @@ int main(int argc, char** argv) {
 		}
 		else if (command == "rm") {
 			std::cin >> dirName;
-			if (system.isExist(dirName) == true) { system.rm(dirName); }
-			else { std::cerr << dirName << ": No such file or directory" << std::endl; }
+			if (system.isExist(dirName) == true)
+				system.rm(dirName);
+			else
+				std::cerr << dirName << ": No such file or directory" << std::endl;
 		}
 		else if (command == "quit") return 0;
 		else { std::cerr << command << ": command not found" << std::endl; }
