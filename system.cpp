@@ -1,10 +1,15 @@
 #include "system.h"
 
+System::System() {
+	currentFolder = "/";
+	path = "/";
+};
+
 std::string System::getCurrentFolder() {
 	return currentFolder;
 }
 
-void System::mkdir(std::string newDir) {
+void System::mkdir(std::string newDir, std::string currentFolder) {
 	dirs.push_back(new Dir(newDir, currentFolder));
 }
 
@@ -32,7 +37,7 @@ void System::cdBack() {
 		}
 	}
 	else {
-		std::cerr << "Already in root.\n" << std::endl;
+		std::cerr << "Already in root.\n";
 	}
 }
 
@@ -40,37 +45,37 @@ void System::printPath() {
 	std::cout << this->user << this->path + "$ ";
 }
 
-bool System::hasChild(std::string dirname){
-    bool help=false;
-    for(auto &iter : dirs){
-       if(iter->getParent()==dirname){
-           help=true;
-       }
-    }
-    return help;
+bool System::hasChild(std::string dirname) {
+	bool help = false;
+	for (auto& iter : dirs) {
+		if (iter->getParent() == dirname) {
+			help = true;
+		}
+	}
+	return help;
 }
 
-void System::rm(std::string dirname){
-    if(hasChild(dirname)==true){
-        std::cerr << "failed to remove " << "'" << dirname << "': " << "Directory not empty"  << std::endl;
-    }
-    else if (hasChild(dirname) == false){
-        for(unsigned i=0; i<dirs.size();i++){
-            if(dirs[i]->getName()== dirname){
-                dirs.erase(dirs.begin()+i);
-            }
-        }
-    }
+void System::rm(std::string dirname) {
+	if (hasChild(dirname) == true) {
+		std::cerr << "failed to remove " << "'" << dirname << "': " << "Directory not empty" << std::endl;
+	}
+	else if (hasChild(dirname) == false) {
+		for (unsigned i = 0; i < dirs.size(); i++) {
+			if (dirs[i]->getName() == dirname) {
+				dirs.erase(dirs.begin() + i);
+			}
+		}
+	}
 }
 
-bool System::isExist(std::string dirname){
-    bool exist=false;
-    for (auto &iter : dirs){
-        if(iter->getName()==dirname){
-           exist=true;
-        }
-    }
-    return exist;
+bool System::isExists(std::string dirname) {
+	bool exist = false;
+	for (auto& iter : dirs) {
+		if (iter->getName() == dirname) {
+			exist = true;
+		}
+	}
+	return exist;
 }
 
 
