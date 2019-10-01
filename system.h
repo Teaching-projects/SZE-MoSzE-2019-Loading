@@ -5,9 +5,9 @@
 
 class System {
     std::vector<Dir*> dirs;
-    const std::string user = "User@User:";
-    std::string currentFolder = "/";
-    std::string path = "/";
+	const std::string user = "Domain@Host:";
+	std::string currentFolder = "/";
+	std::string path = "/";
     std::string wannaRemove="";
 public:
     std::string getCurrentFolder();
@@ -21,4 +21,4 @@ public:
     bool isExist(std::string);
 };
 
-#endif /* SYSTEM_H */
+#endif // SYSTEM_H

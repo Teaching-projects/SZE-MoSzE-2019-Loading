@@ -5,12 +5,12 @@
 #define DIR_H
 
 class Dir {
-    std::string dirname;
-    std::string parentname;
+	std::string dirname;
+	std::string parentname;
 public:
-    Dir(std::string, std::string);
-    std::string getName();
-    std::string getParent();
+	Dir(std::string, std::string);
+	std::string getName();
+	std::string getParent();
 };
 
-#endif /* DIR_H */
+#endif // DIR_H
