@@ -5,9 +5,9 @@
 
 class System {
     std::vector<Dir*> dirs;
-	const std::string user = "Domain@Host:";
-	std::string currentFolder = "/";
-	std::string path = "/";
+    const std::string user = "Domain@Host:";
+    std::string currentFolder = "/";
+    std::string path = "/";
 public:
     std::string getCurrentFolder();
     void mkdir(std::string);

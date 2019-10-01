@@ -4,22 +4,22 @@
 
 int main(int argc, char** argv) {
 
-	System system;
-	std::string command;
-	std::string dirName;
+    System system;
+    std::string command;
+    std::string dirName;
     std::string secCommand;
 
-	while (true) {
-		system.printPath();
-		std::cin >> command;
-		if (command == "ls")
-			system.ls();
-		else if (command == "mkdir") {
-			std::cin >> dirName;
-			system.mkdir(dirName);
-		}
-		else if (command == "cd") {
-			std::cin >> dirName;
+    while (true) {
+        system.printPath();
+        std::cin >> command;
+        if (command == "ls")
+            system.ls();
+        else if (command == "mkdir") {
+            std::cin >> dirName;
+            system.mkdir(dirName);
+        }
+        else if (command == "cd") {
+            std::cin >> dirName;
             if (dirName == "..")
                 system.cdBack();
             else{
@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
                 else system.cd(dirName);
             }
         }
-		else if (command == "rm") {
+        else if (command == "rm") {
                 std::cin >>secCommand;
                     if(secCommand=="-rf"){
                         std::cin >> dirName;
