@@ -37,3 +37,39 @@ void System::cdBack() {
 void System::printPath() {
     std::cout << this->user << this->path;
 }
+
+bool System::hasChild(std::string dirname){
+    bool help=false;
+    for(auto &iter : dirs){
+       if(iter->getParent()==dirname){
+           help=true;
+       }
+    }
+    return help;
+}
+
+void System::rm(std::string dirname){
+    if(hasChild(dirname)==true){
+        std::cerr << "Cannot be remove..." << std::endl;
+    }
+    else if (hasChild(dirname) == false){
+        for(unsigned i=0; i<dirs.size();i++){
+            if(dirs[i]->getName()== dirname){
+                dirs.erase(dirs.begin()+i);
+            }
+        }
+    }
+}
+
+bool System::isExist(std::string dirname){
+    bool exist=false;
+    for (auto &iter : dirs){
+        if(iter->getName()==dirname){
+           exist=true;
+        }
+    }
+    return exist;
+}
+
+
+

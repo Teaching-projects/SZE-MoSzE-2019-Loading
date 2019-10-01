@@ -19,7 +19,13 @@ int main(int argc, char** argv) {
             if (dirName == ".."){
                 system.cdBack();
             } else { system.cd(dirName);}
-        } else { std::cerr << "Command not found..." << std::endl; }
+        }
+        else if(command =="rm"){
+            std::cin >> dirName;
+            if(system.isExist(dirName)==true){system.rm(dirName);}
+            else { std::cerr <<"Directory name not found..." << std::endl;}
+        }
+        else { std::cerr << "Command not found..." << std::endl;}
     } while(command != "quit");
     return 0;
 }

@@ -8,6 +8,7 @@ class System {
     const std::string user = "User@User:";
     std::string currentFolder = "/";
     std::string path = "/";
+    std::string wannaRemove="";
 public:
     std::string getCurrentFolder();
     void mkdir(std::string);
@@ -15,6 +16,9 @@ public:
     void cd(std::string);
     void cdBack();
     void printPath();
+    void rm(std::string);
+    bool hasChild(std::string);
+    bool isExist(std::string);
 };
 
 #endif /* SYSTEM_H */
