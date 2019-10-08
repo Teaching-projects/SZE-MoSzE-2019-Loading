@@ -1,8 +1,8 @@
-#include <iostream>
-#include <string>
-
 #ifndef DIR_H
 #define DIR_H
+
+#include <iostream>
+#include <string>
 
 class Dir {
     std::string dirname;

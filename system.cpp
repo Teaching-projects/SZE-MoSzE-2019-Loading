@@ -9,9 +9,13 @@ void System::mkdir(std::string newDir) {
 }
 
 void System::ls() {
-    for (auto& d : dirs) {
-        if (d->getParent() == currentFolder)
-            std::cout << d->getName() << std::endl;
+    for (auto &iter : dirs) {
+        if (iter->getParent() == currentFolder)
+            std::cout << iter->getName() << std::endl;
+    }
+    for (auto &iter : files) {
+        if (iter->getParent() == currentFolder)
+            std::cout << iter->getName() << std::endl;
     }
 }
 
@@ -69,7 +73,12 @@ void System::rm(std::string dirname){
 bool System::isExist(std::string dirname){
     bool exist=false;
     for (auto &iter : dirs){
-        if(iter->getName()==dirname){
+        if(iter->getName()==dirname && iter->getParent()==currentFolder){
+           exist=true;
+        }
+    }
+    for (auto &iter4files : files) {
+        if (iter4files->getName() == dirname && iter4files->getParent() == currentFolder) {
            exist=true;
         }
     }
@@ -95,4 +104,11 @@ void System::rmrf(std::string dirname){
     } else std::cerr << "rm: cannot remove '" << dirname <<"': Is a directory"  << std::endl;
 }
 
-
+void System::touch(std::string filename){
+    if(!isExist(filename)){
+        files.push_back(new File(filename, currentFolder));
+    }
+    else if(isExist(filename)){
+        std::cerr << "The filename is already exist..." << std::endl;
+    }
+}

@@ -1,10 +1,13 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
-#include <vector>
+
 #include "dir.h"
+#include "file.h"
+#include <vector>
 
 class System {
     std::vector<Dir*> dirs;
+    std::vector<File*> files;
     const std::string user = "Domain@Host:";
     std::string currentFolder = "/";
     std::string path = "/";
@@ -20,6 +23,7 @@ public:
     bool isExist(std::string);
     std::string getChild(std::string);
     void rmrf(std::string);
+    void touch(std::string);
 };
 
 #endif // SYSTEM_H

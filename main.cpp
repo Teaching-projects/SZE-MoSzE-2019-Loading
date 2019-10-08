@@ -1,5 +1,6 @@
 #include <iostream>
 #include "system.h"
+#include "file.h"
 
 
 int main(int argc, char** argv) {
@@ -8,6 +9,7 @@ int main(int argc, char** argv) {
     std::string command;
     std::string dirName;
     std::string secCommand;
+    std::string filename;
 
     while (true) {
         system.printPath();
@@ -29,7 +31,7 @@ int main(int argc, char** argv) {
             }
         }
         else if (command == "rm") {
-                std::cin >>secCommand;
+                std::cin >> secCommand;
                     if(secCommand=="-rf"){
                         std::cin >> dirName;
                             if (system.isExist(dirName) == false)
@@ -41,6 +43,10 @@ int main(int argc, char** argv) {
                          if (system.isExist(dirName) == true) { system.rm(dirName); }
                          else { std::cerr << dirName << ": No such file or directory" << std::endl; }
                      }
+        }
+        else if(command == "touch"){
+            std::cin >> filename;
+            system.touch(filename);
         }
         else if (command == "quit") {return 0;}
         else { std::cerr << command << ": command not found" << std::endl; }
