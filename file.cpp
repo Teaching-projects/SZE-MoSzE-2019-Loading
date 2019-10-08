@@ -2,6 +2,6 @@
 
 File::File(std::string name, std::string parent) : name(name), parent(parent) {}
 
-std::string File::getName() {return name;}
+std::string File::getName() { return name; }
 
-std::string File::getParent() {return parent;}
+std::string File::getParent() { return parent; }

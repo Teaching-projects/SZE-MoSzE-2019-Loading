@@ -13,6 +13,7 @@ class System {
     std::string path = "/";
 public:
     std::string getCurrentFolder();
+    std::string getChild(std::string);
     void mkdir(std::string);
     void ls();
     void cd(std::string);
@@ -21,7 +22,6 @@ public:
     void rm(std::string);
     bool hasChild(std::string);
     bool isExist(std::string);
-    std::string getChild(std::string);
     void rmrf(std::string);
     void touch(std::string);
 };

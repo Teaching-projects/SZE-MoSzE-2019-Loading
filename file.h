@@ -5,13 +5,12 @@
 #include <string>
 
 class File{
-    std::string name;
-    std::string parent;
+   std::string name;
+   std::string parent;
 public:
-    File(std::string, std::string);
-    std::string getName();
-    std::string getParent();
-
+   File(std::string, std::string);
+   std::string getName();
+   std::string getParent();
 };
 
 #endif // FILE_H

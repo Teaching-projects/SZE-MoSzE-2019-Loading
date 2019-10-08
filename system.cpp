@@ -93,6 +93,7 @@ std::string System::getChild(std::string dirname){
     }
     return "No child found...";
 }
+
 void System::rmrf(std::string dirname){
     if(currentFolder != dirname){
         for(auto &iter : dirs){

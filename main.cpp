@@ -45,8 +45,8 @@ int main(int argc, char** argv) {
                      }
         }
         else if(command == "touch"){
-            std::cin >> filename;
-            system.touch(filename);
+                 std::cin >> filename;
+                 system.touch(filename);
         }
         else if (command == "quit") {return 0;}
         else { std::cerr << command << ": command not found" << std::endl; }
